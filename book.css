@@ -75,8 +75,6 @@ img{
     justify-content: center;
     align-items: flex;
     font-family: monospace;
-    overflow: hidden;
-    position: fixed;
 }
 .slider{
     position: relative;
