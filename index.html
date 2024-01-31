@@ -53,5 +53,35 @@
         </div>
     
         <script src="book.js"></script>
+        <script>
+            let touchStartX = 0;
+            let touchEndX = 0;
+    
+            document.querySelector('.slider').addEventListener("touchstart", function (event) {
+                touchStartX = event.touches[0].clientX;
+            });
+    
+            document.querySelector('.slider').addEventListener("touchmove", function (event) {
+                touchEndX = event.touches[0].clientX;
+            });
+    
+            document.querySelector('.slider').addEventListener("touchend", function () {
+                handleSwipe();
+                touchStartX = 0;
+                touchEndX = 0;
+            });
+    
+            function handleSwipe() {
+                const swipeThreshold = 50;
+    
+                if (touchEndX - touchStartX > swipeThreshold) {
+                    // Swipe right
+                    document.getElementById('prev').click();
+                } else if (touchStartX - touchEndX > swipeThreshold) {
+                    // Swipe left
+                    document.getElementById('next').click();
+                }
+            }
+        </script>
     </body>
     </html>
