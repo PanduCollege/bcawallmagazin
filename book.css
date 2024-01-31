@@ -61,12 +61,12 @@ img{
 @media (max-width: 450px) {
     body{
     padding-top: 35%;
-    min-height: 100vh;
     margin: 0;
     display: flow-root;
     justify-content: center;
     align-items: flex;
     font-family: monospace;
+    min-height: 77vh;
 }
 .slider{
     position: relative;
