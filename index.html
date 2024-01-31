@@ -53,5 +53,36 @@
         </div>
     
         <script src="book.js"></script>
+        <script>
+            let initialX = null;
+    
+            document.addEventListener("touchstart", function (event) {
+                initialX = event.touches[0].clientX;
+            });
+    
+            document.addEventListener("touchmove", function (event) {
+                if (initialX === null) {
+                    return;
+                }
+    
+                const currentX = event.touches[0].clientX;
+                const deltaX = currentX - initialX;
+    
+                if (deltaX > 50) {
+                    // Swipe right
+                    document.getElementById('prev').click();
+                } else if (deltaX < -50) {
+                    // Swipe left
+                    document.getElementById('next').click();
+                }
+    
+                // Reset initialX after swipe
+                initialX = null;
+            });
+    
+            document.addEventListener("touchend", function () {
+                initialX = null;
+            });
+        </script>
     </body>
     </html>
